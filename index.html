@@ -1,143 +1,61 @@
-         <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Valentine's Day ❤️</title>
-    <style>
-        body {
-            text-align: center;
-            background-color: #ffebee;
-            font-family: 'Georgia', sans-serif;
-        }
-        h1 {
-            color: white;
-            font-size: 3em;
-            margin-top: 20vh;
-        }
-        #message {
-            font-size: 1.5em;
-            color: purple;
-             display: none; /* Message is hidden initially */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Phool for My Fool</title>
+  <style>
+    body {
+      background-color: #fcefee;
+      margin: 0;
+      height: 100vh;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+    }
 
-        }
-        .heart {
-            position: absolute;
-            font-size: 2.5em;
-            animation: float 6s ease-in-out;
-        }
-        @keyframes float {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(-100vh); opacity: 0; }
-        }
-        button {
-            margin-top: 50px;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            color: black;
-            background: pink;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-         #secondButton {
-         margin-top: 70px;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            color: black;
-            background: pink;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            display: none; /* Initially hidden */
-        }
-         #thirdButton {
-         margin-top: 70px;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            color: black;
-            background: pink;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            display: none; /* Initially hidden */
-        }
-    </style>
+    .message {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .message img {
+      width: 150px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .text {
+      font-size: 1.4rem;
+      color: #b4005a;
+      background: #fff0f8;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
-<body>
-    <h1>Happy Valentine's Day Amal ❤️</h1>
-    <p id="message">You have been dating a total nerd sike </p>
-    <button onclick="showHeartsAndMessage()">Click to see how much Ria loves you</button>
-      <button id="secondButton" onclick="showMessage()">Click to see how Ria feels without you</button>
-            <button id="thirdButton" onclick="showMessage2()">Click to see Ria's special 🌶️ picture for you on valentine's day</button>
+<body onclick="showMessage()">
 
+  <div class="message" id="flowerMessage">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Simple_flower.svg/1024px-Simple_flower.svg.png" alt="Flower"/>
+    <div class="text">
+      A phool for my fool so you don't gloom and can sleep in your room.
+    </div>
+  </div>
 
+  <script>
+    function showMessage() {
+      document.getElementById('flowerMessage').style.display = 'block';
+    }
+  </script>
 
-    <script>
-        function showHeartsAndMessage() {
-                    document.getElementById("message").style.display = "block";
-                    document.getElementById("secondButton").style.display = "inline-block";
-
-
-            // Change the message
-            
-
-            // Create a few hearts (limit to 5)
-            for (let i = 0; i < 1000; i++) {
-                createHeart();
-            }
-        }
-
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.innerHTML = "❤️";
-            heart.classList.add("heart");
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = Math.random() * 2 + 1 + "s"; // Hearts disappear faster
-            document.body.appendChild(heart);
-            
-            // Remove the heart after animation
-        }
-        
-        function showMessage() {
-                            document.getElementById("thirdButton").style.display = "inline-block";
-
-                    
-
-            // Change the message
-            
-
-            // Create a few hearts (limit to 5)
-            for (let i = 0; i < 500; i++) {
-                createCry();
-            }
-        }
-
-        function createCry() {
-            const heart = document.createElement("div");
-            heart.innerHTML = "😢";
-            heart.classList.add("heart");
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = Math.random() * 2 + 1 + "s"; // Hearts disappear faster
-            document.body.appendChild(heart);
-            
-            // Remove the heart after animation
-            setTimeout(() => heart.remove(), 3000);
-        }
-        
-        function showMessage2() {
-                            document.getElementById("thirdButton").style.display = "inline-block";
-                            alert("The picture could not be loaded on your laptop because of privacy reasons. Resending the picture on the registered email ID machinery@madhu-group.com. It can take upto 2 minutes to be delivered. Please do not refresh the page"); 
-                    
-
-            // Change the message
-            
-
-            // Create a few hearts (limit to 5)
-            
-        }
-    </script>
 </body>
 </html>
-         
-         
