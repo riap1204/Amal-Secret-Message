@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,54 +7,80 @@
   <title>A Phool for My Fool</title>
   <style>
     body {
-      background-color: #fcefee;
+      background-color: #fff0f5;
       margin: 0;
       height: 100vh;
+      overflow: hidden;
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       cursor: pointer;
       position: relative;
     }
 
-    .message {
-      display: none;
+    .bubble {
       position: absolute;
-      top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
       text-align: center;
+      font-size: 2rem;
+      color: #d1007f;
+      background: #ffe6f0;
+      padding: 20px;
+      border-radius: 25px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      animation: floatUp 2.8s ease-out forwards;
     }
 
-    .message img {
-      width: 150px;
-      height: auto;
-      margin-bottom: 20px;
+    .rose {
+      font-size: 4rem;
+      line-height: 1;
+      margin-bottom: 10px;
     }
 
     .text {
       font-size: 1.4rem;
-      color: #b4005a;
-      background: #fff0f8;
-      padding: 15px 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      color: #88004c;
+    }
+
+    @keyframes floatUp {
+      0% {
+        bottom: 60px;
+        opacity: 0;
+        transform: translateX(-50%) scale(0.95);
+      }
+      10% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.05);
+      }
+      100% {
+        bottom: 100%;
+        opacity: 0;
+        transform: translateX(-50%) scale(0.85);
+      }
     }
   </style>
 </head>
-<body onclick="showMessage()">
-
-  <div class="message" id="flowerMessage">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Simple_flower.svg/1024px-Simple_flower.svg.png" alt="Flower"/>
-    <div class="text">
-      A phool for my fool so you don't gloom and can sleep in your room.
-    </div>
-  </div>
+<body onclick="showBubble()">
 
   <script>
-    function showMessage() {
-      document.getElementById('flowerMessage').style.display = 'block';
+    function showBubble() {
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+
+      bubble.innerHTML = `
+        <div class="rose">🌹</div>
+        <div class="text">A phool for my fool so you don't gloom and can sleep in your room.</div>
+      `;
+
+      // Random horizontal offset
+      const offset = Math.random() * 60 + 20;
+      bubble.style.left = `${offset}%`;
+
+      document.body.appendChild(bubble);
+
+      // Remove after float
+      setTimeout(() => {
+        bubble.remove();
+      }, 2800);
     }
   </script>
 
